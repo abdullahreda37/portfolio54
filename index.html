@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Abdullah | Reda Website Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="codvida2.png" type="image/x-icon">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #111;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+html {
+  scroll-behavior: smooth;
+}
+
+
+.w3-container p{
+  color: #808080;
+  font-size: 16px;
+}
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000; 
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(29, 29, 29, 0.4); /* White color with transparency for bubbles */
+  opacity: 1;
+  pointer-events:none;
+  transition: transform 3s ease-out, opacity 3s ease-out;
+}
+.work-grid {
+  display: flex;
+  flex-wrap:wrap-reverse;
+  margin: 0 -16px;
+}
+
+.work-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.work-item {
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.work-item:hover {
+  transform: translateY(-5px);
+  scale: 0.9;
+}
+
+.work-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.work-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay-content a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: rgb(0, 102, 255);
+  border-radius: 5px;
+}
+
+.overlay-content a:hover {
+  background-color: rgb(0, 102, 255);
+}
+
+ .fa-home{
+  color: rgb(148, 148, 148);
+}
+ .fa-user{
+  color: rgb(255, 208, 0);
+}
+ .fa-eye{
+  color: rgb(0, 102, 255);
+}
+ .fa-envelope{
+  color: rgb(255, 0, 157);
+}
+
+.w3-card:hover {
+      box-shadow: 3px 8px 16px rgba(0,0,0,0.9);
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+    .w3-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 10px 5px 10px #ffd700;
+      padding: 10px;
+    }
+    .w3-text-yellow {
+      color: #ffd700 !important;
+    }
+    .service-icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .fa-code{
+      color: #ffd700;
+    }
+   
+    ::-webkit-scrollbar {
+  width: 4px; 
+  height: 10px; 
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #111; 
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #777; 
+  border-radius: 5px; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
+
+.w3-section p:hover{
+  color: rgb(255, 0, 157);
+  scale: 0.98;
+  transition: .2s;
+}
+
+
+#stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    animation: animStar 80s linear infinite, twinkle 2s infinite ease-in-out;
+    box-shadow: 779px 1331px #333, 324px 42px #333, 303px 586px #333,
+    1312px 276px #333, 451px 625px #333, 521px 1931px #333, 1087px 1871px #333,
+    36px 1546px #333, 132px 934px #333, 1698px 901px #333, 1418px 664px #333,
+    1448px 1157px #333, 1084px 232px #333, 347px 1776px #333, 1722px 243px #333,
+    1629px 835px #333, 479px 969px #333, 1231px 960px #333, 586px 384px #333,
+    164px 527px #333, 8px 646px #333, 1150px 1126px #333, 665px 1357px #333,
+    1556px 1982px #333, 1260px 1961px #333, 1675px 1741px #333,
+    1843px 1514px #333, 718px 1628px #333, 242px 1343px #333, 1497px 1880px #333,
+    1364px 230px #333, 1739px 1302px #333, 636px 959px #333, 304px 686px #333,
+    614px 751px #333, 1935px 816px #333, 1428px 60px #333, 355px 335px #333,
+    1594px 158px #333, 90px 60px #333, 1553px 162px #333, 1239px 1825px #333,
+    1945px 587px #333, 749px 1785px #333, 1987px 1172px #333, 1301px 1237px #333,
+    1039px 342px #333, 1585px 1481px #333, 995px 1048px #333, 524px 932px #333,
+    214px 413px #333, 1701px 1300px #333, 1037px 1613px #333, 1871px 996px #333,
+    1360px 1635px #333, 1110px 1313px #333, 412px 1783px #333, 1949px 177px #333,
+    903px 1854px #333, 700px 1936px #333, 378px 125px #333, 308px 834px #333,
+    1118px 962px #333, 1350px 1929px #333, 781px 1811px #333, 561px 137px #333,
+    757px 1148px #333, 1670px 1979px #333, 343px 739px #333, 945px 795px #333,
+    576px 1903px #333, 1078px 1436px #333, 1583px 450px #333, 1366px 474px #333,
+    297px 1873px #333, 192px 162px #333, 1624px 1633px #333, 59px 453px #333,
+    82px 1872px #333, 1933px 498px #333, 1966px 1974px #333, 1975px 1688px #333,
+    779px 314px #333, 1858px 1543px #333, 73px 1507px #333, 1693px 975px #333,
+    1683px 108px #333, 1768px 1654px #333, 654px 14px #333, 494px 171px #333,
+    1689px 1895px #333, 1660px 263px #333, 1031px 903px #333, 1203px 1393px #333,
+    1333px 1421px #333, 1113px 41px #333, 1206px 1645px #333, 1325px 1635px #333,
+    142px 388px #333, 572px 215px #333, 1535px 296px #333, 1419px 407px #333,
+    1379px 1003px #333, 329px 469px #333, 1791px 1652px #333, 935px 1802px #333,
+    1330px 1820px #333, 421px 1933px #333, 828px 365px #333, 275px 316px #333,
+    707px 960px #333, 1605px 1554px #333, 625px 58px #333, 717px 1697px #333,
+    1669px 246px #333, 1925px 322px #333, 1154px 1803px #333, 1929px 295px #333,
+    1248px 240px #333, 1045px 1755px #333, 166px 942px #333, 1888px 1773px #333,
+    678px 1963px #333, 1370px 569px #333, 1974px 1400px #333, 1786px 460px #333,
+    51px 307px #333, 784px 1400px #333, 730px 1258px #333, 1712px 393px #333,
+    416px 170px #333, 1797px 1932px #333, 572px 219px #333, 1557px 1856px #333,
+    218px 8px #333, 348px 1334px #333, 469px 413px #333, 385px 1738px #333,
+    1357px 1818px #333, 240px 942px #333, 248px 1847px #333, 1535px 806px #333,
+    236px 1514px #333, 1429px 1556px #333, 73px 1633px #333, 1398px 1121px #333,
+    671px 1301px #333, 1404px 1663px #333, 740px 1018px #333, 1600px 377px #333,
+    785px 514px #333, 112px 1084px #333, 1915px 1887px #333, 1463px 1848px #333,
+    687px 1115px #333, 1268px 1768px #333, 1729px 1425px #333,
+    1284px 1022px #333, 801px 974px #333, 1975px 1317px #333, 1354px 834px #333,
+    1446px 1484px #333, 1283px 1786px #333, 11px 523px #333, 1842px 236px #333,
+    1355px 654px #333, 429px 7px #333, 1033px 1128px #333, 157px 297px #333,
+    545px 635px #333, 52px 1080px #333, 827px 1520px #333, 1121px 490px #333,
+    9px 309px #333, 1744px 1586px #333, 1014px 417px #333, 1534px 524px #333,
+    958px 552px #333, 1403px 1496px #333, 387px 703px #333, 1522px 290px #333,
+    1053px 1548px #333, 1534px 325px #333, 305px 670px #333, 1475px 1093px #333,
+    1718px 711px #333, 979px 821px #333, 1792px 1241px #333, 104px 1011px #333,
+   
+}
+#stars:after {
+    content: '';
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 779px 1331px #333, 324px 42px #333, 303px 586px #333,
+    1312px 276px #333, 451px 625px #333, 521px 1931px #333, 1087px 1871px #333,
+    36px 1546px #333, 132px 934px #333, 1698px 901px #333, 1418px 664px #333,
+    1448px 1157px #333, 1084px 232px #333, 347px 1776px #333, 1722px 243px #333,
+    1629px 835px #333, 479px 969px #333, 1231px 960px #333, 586px 384px #333,
+    164px 527px #333, 8px 646px #333, 1150px 1126px #333, 665px 1357px #333,
+    1556px 1982px #333, 1260px 1961px #333, 1675px 1741px #333,
+    1843px 1514px #333, 718px 1628px #333, 242px 1343px #333, 1497px 1880px #333,
+    1364px 230px #333, 1739px 1302px #333, 636px 959px #333, 304px 686px #333,
+    614px 751px #333, 1935px 816px #333, 1428px 60px #333, 355px 335px #333,
+    1594px 158px #333, 90px 60px #333, 1553px 162px #333, 1239px 1825px #333,
+    1945px 587px #333, 749px 1785px #333, 1987px 1172px #333, 1301px 1237px #333,
+    1039px 342px #333, 1585px 1481px #333, 995px 1048px #333, 524px 932px #333,
+    214px 413px #333, 1701px 1300px #333, 1037px 1613px #333, 1871px 996px #333,
+    1360px 1635px #333, 1110px 1313px #333, 412px 1783px #333, 1949px 177px #333,
+    903px 1854px #333, 700px 1936px #333, 378px 125px #333, 308px 834px #333,
+    1118px 962px #333, 1350px 1929px #333, 781px 1811px #333, 561px 137px #333,
+    757px 1148px #333, 1670px 1979px #333, 343px 739px #333, 945px 795px #333,
+    576px 1903px #333, 1078px 1436px #333, 1583px 450px #333, 1366px 474px #333,
+    297px 1873px #333, 192px 162px #333, 1624px 1633px #333, 59px 453px #333,
+    82px 1872px #333, 1933px 498px #333, 1966px 1974px #333, 1975px 1688px #333,
+    779px 314px #333, 1858px 1543px #333, 73px 1507px #333, 1693px 975px #333,
+    1683px 108px #333, 1768px 1654px #333, 654px 14px #333, 494px 171px #333,
+    1689px 1895px #333, 1660px 263px #333, 1031px 903px #333, 1203px 1393px #333,
+    1333px 1421px #333, 1113px 41px #333, 1206px 1645px #333, 1325px 1635px #333,
+    142px 388px #333, 572px 215px #333, 1535px 296px #333, 1419px 407px #333,
+    1379px 1003px #333, 329px 469px #333, 1791px 1652px #333, 935px 1802px #333,
+    1330px 1820px #333, 421px 1933px #333, 828px 365px #333, 275px 316px #333,
+    707px 960px #333, 1605px 1554px #333, 625px 58px #333, 717px 1697px #333,
+    1669px 246px #333, 1925px 322px #333, 1154px 1803px #333, 1929px 295px #333,
+    1248px 240px #333, 1045px 1755px #333, 166px 942px #333, 1888px 1773px #333,
+    678px 1963px #333, 1370px 569px #333, 1974px 1400px #333, 1786px 460px #333,
+    51px 307px #333, 784px 1400px #333, 730px 1258px #333, 1712px 393px #333,
+    416px 170px #333, 1797px 1932px #333, 572px 219px #333, 1557px 1856px #333,
+    218px 8px #333, 348px 1334px #333, 469px 413px #333, 385px 1738px #333,
+    1357px 1818px #333, 240px 942px #333, 248px 1847px #333, 1535px 806px #333,
+    236px 1514px #333, 1429px 1556px #333, 73px 1633px #333, 1398px 1121px #333,
+    671px 1301px #333, 1404px 1663px #333, 740px 1018px #333, 1600px 377px #333,
+    785px 514px #333, 112px 1084px #333, 1915px 1887px #333, 1463px 1848px #333,
+    687px 1115px #333, 1268px 1768px #333, 1729px 1425px #333,
+    1284px 1022px #333, 801px 974px #333, 1975px 1317px #333, 1354px 834px #333,
+    1446px 1484px #333, 1283px 1786px #333, 11px 523px #333, 1842px 236px #333,
+    1355px 654px #333, 429px 7px #333, 1033px 1128px #333, 157px 297px #333,
+    545px 635px #333, 52px 1080px #333, 827px 1520px #333, 1121px 490px #333,
+    9px 309px #333, 1744px 1586px #333, 1014px 417px #333, 1534px 524px #333,
+    958px 552px #333, 1403px 1496px #333, 387px 703px #333, 1522px 290px #333,
+    1053px 1548px #333, 1534px 325px #333, 305px 670px #333, 1475px 1093px #333,
+    1718px 711px #333, 979px 821px #333, 1792px 1241px #333, 104px 1011px #333,
+   
+}
+
+#stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    animation: animStar 100s linear infinite;
+    box-shadow: 142px 388px #333, 572px 215px #333, 1535px 296px #333, 1419px 407px #333,
+    1379px 1003px #333, 329px 469px #333, 1791px 1652px #333, 935px 1802px #333,
+    1330px 1820px #333, 421px 1933px #333, 828px 365px #333, 275px 316px #333,
+    707px 960px #333, 1605px 1554px #333, 625px 58px #333, 717px 1697px #333,
+    1669px 246px #333, 1925px 322px #333, 1154px 1803px #333, 1929px 295px #333,
+    1248px 240px #333, 1045px 1755px #333, 166px 942px #333, 1888px 1773px #333,
+    678px 1963px #333, 1370px 569px #333, 1974px 1400px #333, 1786px 460px #333,
+    51px 307px #333, 784px 1400px #333, 730px 1258px #333, 1712px 393px #333,
+    416px 170px #333, 1797px 1932px #333, 572px 219px #333, 1557px 1856px #333,
+    218px 8px #333, 348px 1334px #333, 469px 413px #333, 385px 1738px #333,
+    1357px 1818px #333, 240px 942px #333, 248px 1847px #333, 1535px 806px #333,
+    236px 1514px #333, 1429px 1556px #333, 73px 1633px #333, 1398px 1121px #333,
+    671px 1301px #333, 1404px 1663px #333, 740px 1018px #333, 1600px 377px #333,
+    785px 514px #333, 112px 1084px #333, 1915px 1887px #333, 1463px 1848px #333,
+    687px 1115px #333, 1268px 1768px #333, 1729px 1425px #333,
+    1284px 1022px #333, 801px 974px #333, 1975px 1317px #333, 1354px 834px #333,
+    1446px 1484px #333, 1283px 1786px #333, 11px 523px #333, 1842px 236px #333,
+    1355px 654px #333, 429px 7px #333, 1033px 1128px #333, 157px 297px #333,
+    545px 635px #333, 52px 1080px #333, 827px 1520px #333, 1121px 490px #333,
+    9px 309px #333, 1744px 1586px #333, 1014px 417px #333, 1534px 524px #333,
+    958px 552px #333, 1403px 1496px #333, 387px 703px #333, 1522px 290px #333,
+    1053px 1548px #333, 1534px 325px #333, 305px 670px #333, 1475px 1093px #333,
+    1718px 711px #333, 979px 821px #333, 1792px 1241px #333, 104px 1011px #333;
+   
+    opacity: 0.2;
+}
+
+#stars2:after {
+    content: '';
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 1448px 320px #fff, 1775px 1663px #fff, 332px 1364px #fff,
+    878px 340px #fff, 569px 1832px #fff, 1422px 1684px #fff, 1946px 1907px #fff,
+    121px 979px #fff, 1044px 1069px #fff, 463px 381px #fff, 423px 112px #fff,
+    523px 1179px #fff, 779px 654px #fff, 1398px 694px #fff, 1085px 1464px #fff,
+    1599px 1869px #fff, 801px 1882px #fff, 779px 1231px #fff, 552px 932px #fff,
+    1057px 1196px #fff, 282px 1280px #fff, 496px 1986px #fff, 1833px 1120px #fff,
+    1802px 1293px #fff, 6px 1696px #fff, 412px 1902px #fff, 605px 438px #fff,
+    24px 1212px #fff, 234px 1320px #fff, 544px 344px #fff, 1107px 170px #fff,
+    1603px 196px #fff, 905px 648px #fff, 68px 1458px #fff, 649px 1969px #fff,
+    744px 675px #fff, 1127px 478px #fff, 714px 1814px #fff, 1486px 526px #fff,
+    270px 1636px #fff, 1931px 149px #fff, 1807px 378px #fff, 8px 390px #fff,
+    1415px 699px #fff, 1473px 1211px #fff, 1590px 141px #fff, 270px 1705px #fff,
+    69px 1423px #fff, 1108px 1053px #fff, 1946px 128px #fff, 371px 371px #fff,
+    1490px 220px #fff, 357px 1885px #fff, 363px 363px #fff, 1896px 1256px #fff,
+    1979px 1050px #fff, 947px 1342px #fff, 1754px 242px #fff, 514px 974px #fff,
+    65px 1477px #fff, 1840px 547px #fff, 950px 695px #fff, 459px 1150px #fff,
+    1124px 1502px #fff, 481px 940px #fff, 680px 839px #fff, 797px 1169px #fff,
+    1977px 1491px #fff, 734px 1724px #fff, 210px 298px #fff, 816px 628px #fff,
+    686px 770px #fff, 1721px 267px #fff, 1663px 511px #fff, 1481px 1141px #fff,
+    582px 248px #fff, 1308px 953px #fff, 628px 657px #fff, 897px 1535px #fff,
+    270px 931px #fff, 791px 467px #fff, 1336px 1732px #fff, 1013px 1653px #fff,
+    1911px 956px #fff, 587px 816px #fff, 83px 456px #fff, 930px 1478px #fff,
+    1587px 1694px #fff, 614px 1200px #fff, 302px 1782px #fff, 1711px 1432px #fff,
+    443px 904px #fff, 1666px 714px #fff, 1588px 1167px #fff, 273px 1075px #fff,
+    1679px 461px #fff, 721px 664px #fff, 1202px 10px #fff, 166px 1126px #fff,
+    331px 1628px #fff, 430px 1565px #fff, 1585px 509px #fff, 640px 38px #fff,
+    822px 837px #fff, 1760px 1664px #fff, 1122px 1458px #fff, 398px 131px #fff,
+    689px 285px #fff, 460px 652px #fff, 1627px 365px #fff, 348px 1648px #fff,
+    819px 1946px #fff, 981px 1917px #fff, 323px 76px #fff, 979px 684px #fff,
+    887px 536px #fff, 1348px 1596px #fff, 1055px 666px #fff, 1402px 1797px #fff,
+    1300px 1055px #fff, 937px 238px #fff, 1474px 1815px #fff, 1144px 1710px #fff,
+    1629px 1087px #fff, 911px 919px #fff, 771px 819px #fff, 403px 720px #fff,
+    163px 736px #fff, 1062px 238px #fff, 1774px 818px #fff, 1874px 1178px #fff,
+    1177px 699px #fff, 1244px 1244px #fff, 1371px 58px #fff, 564px 1515px #fff,
+    1824px 487px #fff, 929px 702px #fff, 394px 1348px #fff, 1161px 641px #fff,
+    219px 1841px #fff, 358px 941px #fff, 140px 1759px #fff, 1019px 1345px #fff,
+    274px 436px #fff, 1433px 1605px #fff, 1798px 1426px #fff, 294px 1848px #fff,
+    1681px 1877px #fff, 1344px 1824px #fff, 1439px 1632px #fff,
+    161px 1012px #fff, 1308px 588px #fff, 1789px 582px #fff, 721px 1910px #fff,
+    318px 218px #fff, 607px 319px #fff, 495px 535px #fff, 1552px 1575px #fff,
+    1562px 67px #fff, 403px 926px #fff, 1096px 1800px #fff, 1814px 1709px #fff,
+    1882px 1831px #fff, 533px 46px #fff, 823px 969px #fff, 530px 165px #fff,
+    1030px 352px #fff, 1681px 313px #fff, 338px 115px #fff, 1607px 211px #fff,
+    1718px 1184px #fff, 1589px 659px #fff, 278px 355px #fff, 464px 1464px #fff,
+    1165px 277px #fff, 950px 694px #fff, 1746px 293px #fff, 793px 911px #fff,
+    528px 773px #fff, 1883px 1694px #fff, 748px 182px #fff, 1924px 1531px #fff,
+    100px 636px #fff, 1473px 1445px #fff, 1264px 1244px #fff, 850px 1377px #fff,
+    987px 1976px #fff, 933px 1761px #fff, 922px 1270px #fff, 500px 396px #fff,
+    1324px 8px #fff, 1967px 1814px #fff, 1072px 1401px #fff, 961px 37px #fff,
+    156px 81px #fff, 1915px 502px #fff, 1076px 1846px #fff, 152px 1669px #fff,
+    986px 1529px #fff, 1667px 1137px #fff;
+    opacity: 0.2;
+}
+
+#stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    animation: animStar 150s linear infinte;
+    box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
+    948px 1828px #fff, 1977px 1001px #fff, 1284px 1963px #fff, 656px 284px #fff,
+    1268px 1635px #fff, 1820px 598px #fff, 642px 1900px #fff, 296px 57px #fff,
+    921px 1620px #fff, 476px 1858px #fff, 658px 613px #fff, 1171px 1363px #fff,
+    1419px 283px #fff, 1037px 731px #fff, 503px 663px #fff, 1562px 463px #fff,
+    383px 1197px #fff, 1171px 1233px #fff, 876px 1768px #fff, 856px 1615px #fff,
+    1375px 1924px #fff, 1725px 918px #fff, 952px 119px #fff, 768px 1212px #fff,
+    992px 1462px #fff, 1929px 717px #fff, 1947px 755px #fff, 1818px 1123px #fff,
+    1896px 1672px #fff, 460px 198px #fff, 256px 271px #fff, 752px 544px #fff,
+    1222px 1859px #fff, 1851px 443px #fff, 313px 1858px #fff, 709px 446px #fff,
+    1546px 697px #fff, 674px 1155px #fff, 1112px 130px #fff, 355px 1790px #fff,
+    1496px 974px #fff, 1696px 480px #fff, 1316px 1265px #fff, 1645px 1063px #fff,
+    1182px 237px #fff, 427px 1582px #fff, 859px 253px #fff, 458px 939px #fff,
+    1517px 1644px #fff, 1943px 60px #fff, 212px 1650px #fff, 966px 1786px #fff,
+    473px 712px #fff, 130px 76px #fff, 1417px 1186px #fff, 909px 1580px #fff,
+    1913px 762px #fff, 204px 1143px #fff, 1998px 1057px #fff, 1468px 1301px #fff,
+    144px 1676px #fff, 21px 1601px #fff, 382px 1362px #fff, 912px 753px #fff,
+    1488px 1405px #fff, 802px 156px #fff, 174px 550px #fff, 338px 1366px #fff,
+    1197px 774px #fff, 602px 486px #fff, 682px 1877px #fff, 348px 1503px #fff,
+    407px 1139px #fff, 950px 1400px #fff, 922px 1139px #fff, 1697px 293px #fff,
+    1238px 1281px #fff, 1038px 1197px #fff, 376px 1889px #fff,
+    1255px 1680px #fff, 1008px 1316px #fff, 1538px 1447px #fff,
+    1186px 874px #fff, 1967px 640px #fff, 1341px 19px #fff, 29px 1732px #fff,
+    16px 1650px #fff, 1021px 1075px #fff, 723px 424px #fff, 1175px 41px #fff,
+    494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff,
+    498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
+    opacity: 0.2;
+}
+
+#stars3:after {
+    content: '';
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
+    948px 1828px #fff, 1977px 1001px #fff, 1284px 1963px #fff, 656px 284px #fff,
+    1268px 1635px #fff, 1820px 598px #fff, 642px 1900px #fff, 296px 57px #fff,
+    921px 1620px #fff, 476px 1858px #fff, 658px 613px #fff, 1171px 1363px #fff,
+    1419px 283px #fff, 1037px 731px #fff, 503px 663px #fff, 1562px 463px #fff,
+    383px 1197px #fff, 1171px 1233px #fff, 876px 1768px #fff, 856px 1615px #fff,
+    1375px 1924px #fff, 1725px 918px #fff, 952px 119px #fff, 768px 1212px #fff,
+    992px 1462px #fff, 1929px 717px #fff, 1947px 755px #fff, 1818px 1123px #fff,
+    1896px 1672px #fff, 460px 198px #fff, 256px 271px #fff, 752px 544px #fff,
+    1222px 1859px #fff, 1851px 443px #fff, 313px 1858px #fff, 709px 446px #fff,
+    1546px 697px #fff, 674px 1155px #fff, 1112px 130px #fff, 355px 1790px #fff,
+    1496px 974px #fff, 1696px 480px #fff, 1316px 1265px #fff, 1645px 1063px #fff,
+    1182px 237px #fff, 427px 1582px #fff, 859px 253px #fff, 458px 939px #fff,
+    1517px 1644px #fff, 1943px 60px #fff, 212px 1650px #fff, 966px 1786px #fff,
+    473px 712px #fff, 130px 76px #fff, 1417px 1186px #fff, 909px 1580px #fff,
+    1913px 762px #fff, 204px 1143px #fff, 1998px 1057px #fff, 1468px 1301px #fff,
+    144px 1676px #fff, 21px 1601px #fff, 382px 1362px #fff, 912px 753px #fff,
+    1488px 1405px #fff, 802px 156px #fff, 174px 550px #fff, 338px 1366px #fff,
+    1197px 774px #fff, 602px 486px #fff, 682px 1877px #fff, 348px 1503px #fff,
+    407px 1139px #fff, 950px 1400px #fff, 922px 1139px #fff, 1697px 293px #fff,
+    1238px 1281px #fff, 1038px 1197px #fff, 376px 1889px #fff,
+    1255px 1680px #fff, 1008px 1316px #fff, 1538px 1447px #fff,
+    1186px 874px #fff, 1967px 640px #fff, 1341px 19px #fff, 29px 1732px #fff,
+    16px 1650px #fff, 1021px 1075px #fff, 723px 424px #fff, 1175px 41px #fff,
+    494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff,
+    498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
+    opacity: 0.2;
+}
+
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+
+
+.w3-sidebar a.w3-black {
+      background-color: black;
+      transition: background-color 0.5s ease;
+    }
+
+   
+
+
+</style>
+</head>
+<body class="w3-black">
+  <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+<div class="background">
+  
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+      <!-- Avatar image in top left corner -->
+     <img src="./personal.jpg"  style="width:100%;">
+
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black w3-hover-black">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>HOME</p>
+      </a>
+      <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-user w3-xxlarge" ></i>
+        <p>ABOUT</p>
+      </a>
+      <a href="#Projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-eye w3-xxlarge"></i>
+        <p>Projects</p>
+      </a>
+      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>CONTACT</p>
+      </a>
+    </nav> 
+
+   
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="mynavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="#Projects" class="w3-bar-item w3-button" style="width:25% !important">Projects</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <section id="home"> <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <!-- <h1 class="w3-jumbo "><span class="w3-hide-small">I'm</span>Abdullah Reda</h1> -->
+    <p class="w3-center  w3-padding-16">I Create <span id="typed-output"></span></p>
+    <img src="./personal.jpg" alt="boy" class="w3-image" width="552" height="1108">
+  </header>
+  </section>
+
+  <section id="about">
+  <!-- About Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+    <h2 class="w3-text-yellow">About Me</h2>
+    <hr style="width:200px;" class="w3-opacity ">
+    <hr style="width:150px" class="w3-opacity ">
+    <p>Hello, I am Abdullah Reda, a software engineer. Over the past three years, I have participated in many programming activities and events that qualified me and made me distinguished in this field. I would very much like to share these ideas with you. Good luck to everyone.
+    </p>
+    <h3 class="w3-padding-16 w3-text-yellow">My Skills</h3>
+    <p class="w3-wide">Web Development</p>
+    <div class="w3-gray">
+      <div class="w3-yellow" style="height:28px;width:95%"></div>
+    </div>
+    <p class="w3-wide">Web Design</p>
+    <div class="w3-gray">
+      <div class="w3-yellow" style="height:28px;width:85%"></div>
+    </div>
+    <p class="w3-wide">Seo</p>
+    <div class="w3-gray">
+      <div class="w3-yellow" style="height:28px;width:80%"></div>
+    </div><br>
+    
+    <div class="w3-row w3-center w3-padding-16 w3-section w3-yellow">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">11+</span><br>
+        Partners
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">55+</span><br>
+        Projects Done
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">89+</span><br>
+        Happy Clients
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">150+</span><br>
+        Meetings
+      </div>
+    </div>
+
+    <button class="w3-button w3-light-dark w3-hover-yellow w3-padding-large w3-section">
+      <i class="fa fa-download"></i> Download Resume
+    </button>
+    
+    <!-- Grid for pricing tables -->
+    <h3 class="w3-padding-16 w3-text-yellow">My Price</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-yellow w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Web Development</li>
+          <li class="w3-padding-16">5GB Storage</li>
+          <li class="w3-padding-16">Mail Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 10</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-yellow">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="w3-half">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-yellow w3-xlarge w3-padding-32">Pro</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Web Development</li>
+          <li class="w3-padding-16">50GB Storage</li>
+          <li class="w3-padding-16">Endless Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 25</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-yellow">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    <!-- End Grid/Pricing tables -->
+    </div>
+    
+    <!-- Testimonials -->
+    <h3 class="w3-padding-24 w3-text-yellow">My Reputation</h3>  
+    <img src="./avatr.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-margin-right ">Hishame Magdy.</span> CEO at Mighty Schools.</p>
+    <p>Abdullah is proficient in programming problem solving skills</p><br>
+    
+    <img src="./avatr2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-margin-right ">Hussin.</span> CEO at Company.</p>
+    <p>He is distinguished in his field as a web developer</p><br>
+
+    <img src="./avater3.jpeg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-margin-right ">Mohammed Sharaf.</span> Courses Zone.</p>
+    <p>Abdullah seeks to improve himself and learn more.</p><br>
+    
+    <img src="./avater4.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+    <p><span class="w3-large w3-margin-right  ">Mohammed Sultan.</span> Courses Zone.</p>
+    <p>Wants to learn more programming skills</p>
+  <!-- End About Section -->
+  </div>
+
+
+
+ <!-- Services Section -->
+<div class="w3-padding-64 w3-content">
+  <h2 class="w3-text-yellow">My Services</h2>
+  <hr style="width:200px" class="w3-opacity">
+  <hr style="width:150px" class="w3-opacity">
+
+  <!-- Grid for services -->
+  <div class="w3-row-padding w3-grayscale">
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card w3-card-4 w3-hover-shadow w3-white w3-center w3-opacity w3-hover-opacity-off">
+        <div class="w3-container">
+          <i class="fa fa-code service-icon w3-text-yellow"></i>
+          <h3>Web Development</h3>
+          <p class="w3-opacity">Creating responsive and dynamic websites</p>
+          <p>
+            <!-- <button class="w3-button w3-yellow w3-block">Learn More</button> -->
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card w3-card-4 w3-hover-shadow w3-white w3-center w3-opacity w3-hover-opacity-off">
+        <div class="w3-container">
+          <i class="fa fa-mobile service-icon w3-text-yellow"></i>
+          <h3>Mobile Development</h3>
+          <p class="w3-opacity">Building mobile applications for Android and iOS</p>
+          <p>
+            <!-- <button class="w3-button w3-yellow w3-block">Learn More</button> -->
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card w3-card-4 w3-hover-shadow w3-white w3-center w3-opacity w3-hover-opacity-off">
+        <div class="w3-container">
+          <i class="fa fa-paint-brush service-icon w3-text-yellow"></i>
+          <h3>UI/UX Design</h3>
+          <p class="w3-opacity">Designing user-friendly interfaces and experiences</p>
+          <p>
+            <!-- <button class="w3-button w3-yellow w3-block">Learn More</button> -->
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card w3-card-4 w3-hover-shadow w3-white w3-center w3-opacity w3-hover-opacity-off">
+        <div class="w3-container">
+          <i class="fa fa-search service-icon w3-text-yellow"></i>
+          <h3>SEO Optimization</h3>
+          <p class="w3-opacity w3-text-dark">Improving website ranking on search engines</p>
+          <p>
+            <!-- <button class="w3-button w3-yellow w3-block">Learn More</button> -->
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- End services grid -->
+</div>
+<!-- End Services Section -->
+
+</section>
+
+
+<section id="Projects">
+
+<!-- Page content -->
+<div class="w3-content w3-padding-64" id="Projects">
+  <h2 class="w3-text-blue">My Works</h2>
+  <hr style="width:200px" class="w3-opacity">
+  <hr style="width:150px" class="w3-opacity"><br><br><br><br>
+  
+  <h5 class="w3-center w3-text-blue" style="border-bottom: 2px solid rgb(0, 102, 255); padding-bottom: 20px; border-radius: 2px;">" Delta university "</h5>
+  <div class="work-grid">
+    <div class="work-item">
+      <img src="./work1.png" alt="Work 1">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://university-wnjz.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work2.png" alt="Work 2">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://university-wnjz.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work9.png" alt="Work 2">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://university-wnjz.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work10.png" alt="Work 2">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://university-wnjz.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  <h5 class="w3-center w3-text-blue" style="border-bottom: 2px solid rgb(0, 102, 255); padding-bottom: 20px; border-radius: 2px;">" Instagram "</h5>
+    <div class="work-grid">
+     
+    <div class="work-item">
+      <img src="./work3.png" alt="Work 3">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://instagram-two-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work7.png" alt="Work 3">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://instagram-two-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work8.png" alt="Work 3">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://instagram-two-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work11.png" alt="Work 3">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://instagram-two-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+  </div><br>
+  <h5 class="w3-center w3-text-blue" style="border-bottom: 2px solid rgb(0, 102, 255); padding-bottom: 20px; border-radius: 2px;">" Versa Company "</h5>
+    <div class="work-grid">
+    <div class="work-item">
+      <img src="./work4.png" alt="Work 4">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://versa-orcin.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work5.png" alt="Work 4">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://versa-orcin.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work6.png" alt="Work 4">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://versa-orcin.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-item">
+      <img src="./work12.png" alt="Work 4">
+      <div class="overlay">
+        <div class="overlay-content">
+          <a href="https://versa-orcin.vercel.app/" target="_blank" rel="noopener noreferrer">Live Preview</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+
+</section>
+
+
+
+
+  
+<section id="contact">
+  
+  <!-- Contact Section -->
+  <div class="w3-padding-64 w3-content w3-text-gray" id="contact">
+    <h2 class="w3-text-pink">Contact Me</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <hr style="width:150px" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-text-pink w3-xxlarge w3-margin-right"></i> Kafr El shik, EG</p>
+      <p><i class="fa fa-phone fa-fw w3-text-pink w3-xxlarge w3-margin-right"></i> Phone: +20 01018763267</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-pink w3-xxlarge w3-margin-right"> </i> Email: abdullah@mail.com</p>
+    </div><br>
+    <p>Let's get in touch. Send me a message:</p>
+
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-black w3-padding-16 w3-text-pink" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-black w3-padding-16 w3-text-pink" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-black w3-padding-16 w3-text-pink" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-black w3-padding-16 w3-text-pink" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-text-black w3-padding-large w3-pink" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+  <!-- End Contact Section -->
+  </div>
+</section>
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <a href="https://www.facebook.com/profile.php?id=100033399947547&mibextid=ZbWKwL"><i class="fa fa-facebook-official w3-hover-opacity w3-text-pink"></i></a>
+   <a href="https://www.instagram.com/abdullah_reda67"><i class="fa fa-instagram w3-hover-opacity w3-text-pink"></i></a>
+    <a href="https://www.github.com/abdullahreda37"><i class="fa fa-github w3-hover-opacity w3-text-pink"></i></a>
+    <p class="w3-medium">Powered by <a href="https://www.facebook.com/profile.php?id=100033399947547&mibextid=ZbWKwL" target="_blank" class="w3-hover-text-pink">Abdullah-Reda</a></p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+<!-- </div> -->
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var options = {
+          strings: ["Amazing Website", "Front-End Development", "Back-End Development"],
+          typeSpeed: 50,
+          backSpeed: 25,
+          loop: true
+      };
+
+      var typed = new Typed("#typed-output", options);
+  });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const background = document.querySelector('.background');
+
+    function createBubble(x, y) {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        const size = Math.random() * 15 + 8;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${x}px`;
+        bubble.style.top = `${y}px`;
+
+        // Set bubble color to white with some transparency
+        bubble.style.backgroundColor = 'background-color: rgba(29, 29, 29, 0.4);';
+
+        background.appendChild(bubble);
+
+        setTimeout(() => {
+            bubble.style.transition = 'transform 3s ease-out, opacity 3s ease-out';
+            bubble.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) scale(1.5)`;
+            bubble.style.opacity = '0';
+            setTimeout(() => {
+                bubble.remove();
+            }, 3000);
+        }, 10);
+    }
+
+    background.addEventListener('mousemove', (e) => {
+        createBubble(e.clientX, e.clientY);
+    });
+});
+
+
+
+$(document).ready(function() {
+    // اسمح بالتمرير الناعم لجميع الروابط داخل شريط التنقل
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 1000); // الزمن المستغرق للتمرير بالمللي ثانية
+        }
+    });
+});
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.w3-sidebar a');
+
+    function changeActiveLink() {
+      let index = sections.length;
+
+      while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+      navLinks.forEach((link) => link.classList.remove('w3-black'));
+      navLinks[index].classList.add('w3-black');
+    }
+
+    changeActiveLink();
+    window.addEventListener('scroll', changeActiveLink);
+  });
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
